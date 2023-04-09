@@ -1,0 +1,271 @@
+/* 
+ ------------------------------------------- Start of general formating ------------------------------------------
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #19a7ce;
+  /* height: 100vh; */
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem;
+}
+
+.canvas {
+  /* position: relative; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: #19a7ce;
+  /* height: 100%; */
+  border: 2pt solid red;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  border: solid 2px white;
+  height: 50%;
+}
+
+/* 
+
+ ------------------------------------------- End of general formating ------------------------------------------
+
+*/
+
+/* 
+
+ ------------------------------------------- Start of Sun styling ------------------------------------------
+
+*/
+
+.sun {
+  width: 30vmin;
+  height: 30vmin;
+  background-color: orange;
+  border: black dashed 1rem outset;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eye {
+  width: 25%;
+  height: 25%;
+  background: #fffdf9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+  clip-path: circle(50% at center);
+  position: relative;
+}
+
+.iris {
+  width: 50%;
+  height: 50%;
+  background-color: #343434;
+  border-radius: 50%;
+  animation: movement 6s ease-in-out infinite;
+}
+
+.upper-pupil,
+.lower-pupil {
+  width: 100%;
+  height: 4vmin;
+  background-color: #f6c6c6;
+  position: absolute;
+  animation: blink 6s ease-in-out infinite;
+  z-index: 1;
+}
+
+.upper-pupil {
+  top: 0;
+}
+
+.lower-pupil {
+  bottom: 0;
+}
+
+@keyframes movement {
+  0%,
+  10% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-80);
+  }
+  30%,
+  80% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(80);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  30% {
+    height: 20%;
+  }
+  32% {
+    height: 40%;
+  }
+  34% {
+    height: 20%;
+  }
+  36% {
+    height: 40%;
+  }
+  38%,
+  50% {
+    height: 20%;
+  }
+  60%,
+  70% {
+    height: 45%;
+  }
+  80%,
+  100% {
+    height: 20%;
+  }
+}
+
+/* 
+
+ ------------------------------------------- Start of House styling ------------------------------------------
+
+*/
+
+.house {
+  /* border: solid black 2px; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 4vmin;
+  left: -25vmin;
+}
+
+.roof {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-bottom: 10vmin gray solid;
+  border-left: 10vmin transparent solid;
+  border-right: 10vmin transparent solid;
+  width: 0px;
+  height: 0px;
+}
+
+.wall {
+  position: relative;
+  width: 20vmin;
+  height: 15vmin;
+  background-color: #b7b78a;
+  border-top: double 1vmin rgba(0, 0, 0, 0.53);
+}
+
+.door {
+  height: 55%;
+  width: 25%;
+  background-color: brown;
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  border: double 1vmin rgba(0, 0, 0, 0.732);
+  box-sizing: border-box;
+}
+
+.door-knob {
+  width: 1vmin;
+  height: 3%;
+  background-color: gray;
+  position: absolute;
+  bottom: 50%;
+}
+
+.window {
+  position: absolute;
+  width: 30%;
+  height: 35%;
+  background-color: white;
+  left: 60%;
+  top: 10%;
+}
+
+.top-left {
+  left: 15%;
+  width: 4vmin;
+  height: 4.5vmin;
+}
+
+.buttom {
+  top: 50%;
+}
+
+.window-circle {
+  position: absolute;
+  width: 4vmin;
+  height: 4vmin;
+  background-color: white;
+  top: 4vmin;
+}
+
+/* 
+
+ ------------------------------------------- End of House Styling ------------------------------------------
+
+ */
+
+/* 
+
+ ------------------------------------------- Start of Tree Styling ------------------------------------------
+
+ */
+
+.tree {
+  position: relative;
+  border-bottom: 30vmin solid green;
+  border-left: 15vmin solid transparent;
+  border-right: 15vmin solid transparent;
+}
+
+.tree::before {
+  content: "";
+  position: absolute;
+  border-bottom: 25vmin solid greenyellow;
+  border-left: 10vmin solid transparent;
+  border-right: 10vmin solid transparent;
+  top: 5vmin;
+  left: 10vmin;
+}
+
+.tree::after {
+  content: "";
+  position: absolute;
+  border-bottom: 25vmin solid greenyellow;
+  border-left: 10vmin solid transparent;
+  border-right: 10vmin solid transparent;
+  top: 5vmin;
+  right: 65vmin;
+}
+
+/* 
+
+ ------------------------------------------- End of Tree Styling ------------------------------------------
+
+ */
