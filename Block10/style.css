@@ -31,17 +31,55 @@ h1 {
   position: relative;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  /* border: solid 2px white; */
-  height: 50%;
-  flex-grow: inherit;
-  flex-shrink: inherit;
 }
 
 .one {
   border-bottom: #343434 solid 4vmin;
+  margin-top: 5rem;
 }
 
+form {
+  position: sticky;
+  bottom: 0;
+  text-align: center;
+  margin: 3rem;
+  width: fit-content;
+  border: solid black 2px;
+  background-color: #34343474;
+  color: white;
+  align-self: center;
+}
+
+form > h2 {
+  margin: 1rem;
+}
+button {
+  width: 10%;
+  height: 20%;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+.form-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section h1 {
+  text-align: center;
+  margin: 5rem;
+  margin-top: 20rem;
+  padding: 3rem;
+  width: fit-content;
+  border: solid black 2px;
+  background-color: #34343474;
+  color: white;
+}
 /* 
 
  ------------------------------------------- End of general formating ------------------------------------------
@@ -55,13 +93,9 @@ h1 {
 */
 
 .sun {
-  position: relative;
-  right: -30vmin;
-
-  /* position: absolute;
-  right: 15vmin;
-  top: -3vmin; */
-
+  position: absolute;
+  right: 30%;
+  /* bottom: 5%; */
   width: 30vmin;
   height: 30vmin;
   background-color: orange;
@@ -260,7 +294,7 @@ h1 {
   border-bottom: 30vmin solid green;
   border-left: 15vmin solid transparent;
   border-right: 15vmin solid transparent;
-  left: 25vmin;
+  left: 10%;
 }
 
 .tree::before {
@@ -269,18 +303,7 @@ h1 {
   border-bottom: 25vmin solid greenyellow;
   border-left: 10vmin solid transparent;
   border-right: 10vmin solid transparent;
-  top: 27vmin;
-  left: 10vmin;
-}
-
-.tree::after {
-  content: "";
-  position: absolute;
-  border-bottom: 25vmin solid greenyellow;
-  border-left: 10vmin solid transparent;
-  border-right: 10vmin solid transparent;
-  top: 27vmin;
-  right: 99vmin;
+  top: 123%;
 }
 
 /* 
