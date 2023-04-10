@@ -33,7 +33,9 @@ h1 {
   justify-content: center;
   /* align-items: center; */
   /* border: solid 2px white; */
-  /* height: 50%; */
+  height: 50%;
+  flex-grow: inherit;
+  flex-shrink: inherit;
 }
 
 .one {
@@ -55,6 +57,11 @@ h1 {
 .sun {
   position: relative;
   right: -30vmin;
+
+  /* position: absolute;
+  right: 15vmin;
+  top: -3vmin; */
+
   width: 30vmin;
   height: 30vmin;
   background-color: orange;
@@ -109,14 +116,14 @@ h1 {
     transform: translate(0, 0);
   }
   20% {
-    transform: translate(-3vmin, 0px);
+    transform: translate(-4vmin, 0px);
   }
   30%,
   80% {
     transform: translate(0, 0);
   }
   90% {
-    transform: translate(3vmin, 0px);
+    transform: translate(4vmin, 0px);
   }
   100% {
     transform: translate(0, 0);
@@ -168,7 +175,7 @@ h1 {
   display: flex;
   flex-direction: column;
   position: relative;
-  left: -12vmin;
+  left: -5%;
 }
 
 .roof {
@@ -292,7 +299,7 @@ h1 {
 .dummy {
   position: absolute;
   top: 40vmin;
-  left: 100vmin;
+  left: 58%;
   width: 5vmin;
   height: 5vmin;
   background-color: rgb(39, 39, 236);
@@ -350,7 +357,7 @@ h1 {
 .dummy-1 {
   position: absolute;
   top: 40vmin;
-  left: 90vmin;
+  left: 52%;
   width: 5vmin;
   height: 5vmin;
   background-color: rgb(39, 39, 236);
