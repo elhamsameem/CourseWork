@@ -24,7 +24,7 @@ h1 {
   /* align-items: center; */
   background-color: #19a7ce;
   /* height: 100%; */
-  border: 2pt solid red;
+  /* border: 2pt solid red; */
 }
 
 .container {
@@ -32,8 +32,12 @@ h1 {
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  border: solid 2px white;
-  height: 50%;
+  /* border: solid 2px white; */
+  /* height: 50%; */
+}
+
+.one {
+  border-bottom: #343434 solid 4vmin;
 }
 
 /* 
@@ -164,27 +168,26 @@ h1 {
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 4vmin;
-  left: -25vmin;
+  left: -12vmin;
 }
 
 .roof {
   position: relative;
   display: flex;
   justify-content: center;
-  border-bottom: 10vmin gray solid;
-  border-left: 10vmin transparent solid;
-  border-right: 10vmin transparent solid;
+  border-bottom: 20vmin gray solid;
+  border-left: 20vmin transparent solid;
+  border-right: 20vmin transparent solid;
   width: 0px;
   height: 0px;
 }
 
 .wall {
   position: relative;
-  width: 20vmin;
-  height: 15vmin;
+  width: 40vmin;
+  height: 30vmin;
   background-color: #b7b78a;
-  border-top: double 1vmin rgba(0, 0, 0, 0.53);
+  border-top: double 2vmin rgba(0, 0, 0, 0.53);
 }
 
 .door {
@@ -194,12 +197,12 @@ h1 {
   position: absolute;
   bottom: 0;
   left: 15%;
-  border: double 1vmin rgba(0, 0, 0, 0.732);
+  border: double 2vmin rgba(0, 0, 0, 0.732);
   box-sizing: border-box;
 }
 
 .door-knob {
-  width: 1vmin;
+  width: 2vmin;
   height: 3%;
   background-color: gray;
   position: absolute;
@@ -217,8 +220,8 @@ h1 {
 
 .top-left {
   left: 15%;
-  width: 4vmin;
-  height: 4.5vmin;
+  width: 8vmin;
+  height: 9vmin;
 }
 
 .buttom {
@@ -227,10 +230,10 @@ h1 {
 
 .window-circle {
   position: absolute;
-  width: 4vmin;
-  height: 4vmin;
+  width: 8vmin;
+  height: 8vmin;
   background-color: white;
-  top: 4vmin;
+  top: 8vmin;
 }
 
 /* 
@@ -250,6 +253,7 @@ h1 {
   border-bottom: 30vmin solid green;
   border-left: 15vmin solid transparent;
   border-right: 15vmin solid transparent;
+  left: 25vmin;
 }
 
 .tree::before {
@@ -258,7 +262,7 @@ h1 {
   border-bottom: 25vmin solid greenyellow;
   border-left: 10vmin solid transparent;
   border-right: 10vmin solid transparent;
-  top: 5vmin;
+  top: 27vmin;
   left: 10vmin;
 }
 
@@ -268,8 +272,8 @@ h1 {
   border-bottom: 25vmin solid greenyellow;
   border-left: 10vmin solid transparent;
   border-right: 10vmin solid transparent;
-  top: 5vmin;
-  right: 65vmin;
+  top: 27vmin;
+  right: 99vmin;
 }
 
 /* 
@@ -287,8 +291,8 @@ h1 {
 /* The Dummy's head */
 .dummy {
   position: absolute;
-  top: 18vmin;
-  left: 70vmin;
+  top: 40vmin;
+  left: 100vmin;
   width: 5vmin;
   height: 5vmin;
   background-color: rgb(39, 39, 236);
@@ -345,8 +349,8 @@ h1 {
 /* The Dummy 1's head */
 .dummy-1 {
   position: absolute;
-  top: 18vmin;
-  left: 60vmin;
+  top: 40vmin;
+  left: 90vmin;
   width: 5vmin;
   height: 5vmin;
   background-color: rgb(39, 39, 236);
