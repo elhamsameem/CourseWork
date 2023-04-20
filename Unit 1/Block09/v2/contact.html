@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <!-- header include nav bar  -->
+    <header>
+      <!-- adding wavy text content -->
+      <div class="wavy">
+        <span style="--i: 1">E</span>
+        <span style="--i: 2">L</span>
+        <span style="--i: 3">H</span>
+        <span style="--i: 4">A</span>
+        <span style="--i: 5">M</span>
+        <span style="--i: 6">_</span>
+        <span style="--i: 7">S</span>
+        <span style="--i: 8">A</span>
+        <span style="--i: 9">M</span>
+        <span style="--i: 10">E</span>
+        <span style="--i: 11">E</span>
+        <span style="--i: 12">M</span>
+        <span style="--i: 16">.</span>
+        <span style="--i: 17">.</span>
+        <span style="--i: 18">.</span>
+      </div>
+      <nav id="NavBar">
+        <a href="home.html" class="NavLink">HOME</a>
+        <a href="about.html" class="NavLink">ABOUT ME</a>
+        <a href="portfolio.html" class="NavLink">PORTFOLIO</a>
+        <a href="contact.html" class="NavLink">CONTACT</a>
+      </nav>
+    </header>
+    <main class="contact">
+      <form id="form">
+        <p>
+          If you have any questions please fillout the form below and I will
+          reach back to you ASAP!
+        </p>
+        <br />
+
+        <label for="name">Name </label> <br />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Ex: John Dang"
+          required
+        />
+        <br /><br />
+
+        <label for="email">Email </label> <br />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="example@gmail.com"
+          required
+        />
+        <br />
+        <br />
+
+        <label for="message">Message</label> <br />
+        <textarea
+          name="message"
+          id="message"
+          placeholder="50 Words recommended"
+          required
+        ></textarea>
+        <br />
+        <br />
+
+        <button id="submit">Submit</button>
+      </form>
+    </main>
+    <footer>
+      <!-- Secrtion for contact -->
+      <section id="contact">
+        <!-- github icon -->
+        <a href="https://github.com/elhamsameem"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+            alt="github icon not found"
+        /></a>
+        <!-- gmail icon -->
+        <a href="https://www.google.com/gmail/about/"
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
+            alt="gmail icon not found"
+        /></a>
+        <!-- facebook icon -->
+        <a href="https://www.facebook.com/"
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+            alt="facebook icon not found"
+        /></a>
+      </section>
+    </footer>
+  </body>
+</html>
