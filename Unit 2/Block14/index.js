@@ -93,8 +93,10 @@ function checkVowelsAndConsonants(string) {
   let vowels = 0;
   let consonants = 0;
 
+  const vowelsarr = ["a", "e", "i", "o", "u"];
+
   for (i = 0; i < string.length; i++) {
-    if (string[i] === "a" || string[i] === "e" || string[i] === "i" || string[i] === "o" || string[i] === "u") {
+    if (vowelsarr.includes(string[i])) {
       vowels++;
     } else {
       consonants++;
