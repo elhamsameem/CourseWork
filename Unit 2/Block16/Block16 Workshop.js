@@ -88,15 +88,15 @@ function printFinalAmount(object) {
     //Run the "addDiscount" and store the output in a variable
     let grandTotal = addDiscount(object);
 
-    //print the grand total
-    console.log(object.name + "'s Grand Total is: " + grandTotal);
-    console.log("");
-
+    //print the grand total and adds a new line
+    console.log(`${object.name}'s Grand Total is: ${grandTotal}\n`);
 }
 
-console.log("");
-console.log("- Block16 Workshop: Discount Chain -");
-console.log("");
+//Styling purposes for console output
+console.log(""); //adds a new line
+console.log("- Block16 Workshop: Discount Chain -\n");
+
+//invoking the printFinalAmount function to run all the functions and prints the grand total including discounts. 
 printFinalAmount(timmy);
 printFinalAmount(sarah);
 printFinalAmount(rocky);
