@@ -94,10 +94,10 @@ function printFinalAmount(object) {
 
 //Styling purposes for console output
 console.log(""); //adds a new line
-console.log("- Block16 Workshop: Discount Chain -\n");
+console.log("- Block16 Workshop: Discount Chain -\n"); //output: - Block16 Workshop: Discount Chain -
 
 //invoking the printFinalAmount function to run all the functions and prints the grand total including discounts. 
-printFinalAmount(timmy);
-printFinalAmount(sarah);
-printFinalAmount(rocky);
+printFinalAmount(timmy); //output: Timmy's Grand Total is: 57.5
+printFinalAmount(sarah); //output: Sarah's Grand Total is: 37.5
+printFinalAmount(rocky); //output: Rocky's Grand Total is: 112.5
 
