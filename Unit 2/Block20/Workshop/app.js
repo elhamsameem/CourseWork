@@ -16,15 +16,30 @@ function main() {
     h1.innerText = "FREELANCERS"; //puts the test in h1 tag
     root.appendChild(h1); //puts h1 inside of root div
 
-    const ul = document.createElement("ul");
+    const container = document.createElement("div"); //container to keep ul and images
+    container.setAttribute("id", "container"); //giving ID to the container
 
+    const imgcontainer = document.createElement("div"); //container to keep images
+    imgcontainer.setAttribute("id", "imgcontainer"); //giving ID to the container
+
+    const ul = document.createElement("ul"); //creating ul element 
+
+    //using a loop to create li
     for (let i = 0; i < users.length; i++) {
         const li = document.createElement("li");
-        li.innerText(users[i].name);
+        const img = document.createElement("img");
+        img.src = `./asset/${i}.jpg`;
+        li.setAttribute("id", `li${i}`); //give id to li starting with li0 upto li7
+        li.innerText = `Name: ${users[i].name}\nAge: ${users[i].age} \nOccupation: ${users[i].occupation}`;
+
         ul.appendChild(li);
+        // ul.appendChild (img);
+        imgcontainer.appendChild(img);
     }
 
-    root.appendChild(ul);
+    container.appendChild(ul);
+    container.appendChild(imgcontainer);
+    root.appendChild(container);
 
 
 
