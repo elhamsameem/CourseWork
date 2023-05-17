@@ -28,20 +28,17 @@ function main() {
     for (let i = 0; i < users.length; i++) {
         const li = document.createElement("li");
         const img = document.createElement("img");
-        img.src = `./asset/${i}.jpg`;
+        img.src = `./asset/${i}.jpg`; //gets the image from asset folder based on name of the img. 
         li.setAttribute("id", `li${i}`); //give id to li starting with li0 upto li7
         li.innerText = `Name: ${users[i].name}\nAge: ${users[i].age} \nOccupation: ${users[i].occupation}`;
 
         ul.appendChild(li);
-        // ul.appendChild (img);
         imgcontainer.appendChild(img);
     }
 
     container.appendChild(ul);
     container.appendChild(imgcontainer);
     root.appendChild(container);
-
-
 
 }
 
