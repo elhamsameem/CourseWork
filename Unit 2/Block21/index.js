@@ -10,17 +10,17 @@ In this workshop, you will be tasked with coding a virtual assembly line to crea
 
 Project Requirements:
 
-Create file index.js to work in.
+1. Create file index.js to work in.
 
-Write code that defines a constructor function called Car that creates a new object with the following properties: make, model, and year.
+2. Write code that defines a constructor function called "Car" that creates a new object with the following properties: make, model, and year.
 
-Add a method called getDescription to the Car prototype, which returns a string containing information about the car.
+3. Add a method called getDescription to the Car prototype, which returns a string containing information about the car.
 
-Define the ElectricCar function as a subclass of Car. Include an additional property called range that represents the range of the electric car in miles.
+4. Define the ElectricCar function as a subclass of Car. Include an additional property called range that represents the range of the electric car in miles.
 
-Have the ElectricCar prototype override the getDescription method of the Car prototype with a new implementation that includes information about the range of the electric car.
+5. Have the ElectricCar prototype override the getDescription method of the Car prototype with a new implementation that includes information about the range of the electric car.
 
-Create an instance of ElectricCar with the make "Tesla", model "Model S", year 2019, and range 300, and the getDescription method is called on the instance. The output will be a string containing the make, model, year, and range of the electric car.
+6. Create an instance of ElectricCar with the make "Tesla", model "Model S", year 2019, and range 300, and the getDescription method is called on the instance. The output will be a string containing the make, model, year, and range of the electric car.
 
 
 */
@@ -33,12 +33,11 @@ class Car {
         this.make = make;
         this.model = model;
         this.year = year;
-
     }
 
     //Add a method called getDescription to the Car prototype, which returns a string containing information about the car.
     getDescription() {
-        const description = `${this.year} ${this.make} ${this.model}`;
+        const description = `Make: ${this.make}\nModel: ${this.model}\nYear: ${this.year}\n`;    // the "\n" will add a new line
         return description;
     }
 }
@@ -52,17 +51,21 @@ class ElectricCar extends Car {
 
     //Have the ElectricCar prototype override the getDescription method of the Car prototype with a new implementation that includes information about the range of the electric car.
     getDescription() {
-        return `${super.getDescription()} - Range: ${this.range}`;
+        return `${super.getDescription()}Range: ${this.range}`;
     }
 
 }
 
 //Create an instance of ElectricCar with the make "Tesla", model "Model S", year 2019, and range 300, and the getDescription method is called on the instance. The output will be a string containing the make, model, year, and range of the electric car.
-const car1 = new ElectricCar("Tesla", "Model S", 2019, "300 Miles");
-console.log(car1.getDescription());
+const teslaModelS = new ElectricCar("Tesla", "S", 2019, "300 Miles");
 
-
-// const car1 = new car("vw", "jetta", 2021);
-// console.log(car1.getDescription())
+console.log(teslaModelS.getDescription());
+/* 
+    Output: 
+            Make: Tesla
+            Model: S
+            Year: 2019
+            Range: 300 Miles
+*/
 
 
