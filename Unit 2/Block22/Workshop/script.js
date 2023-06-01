@@ -33,6 +33,9 @@ const getPartyById = async (id) => {
 // delete party
 const deleteParty = async (id) => {
   // your code here
+  // const party = await fetch(`${PARTIES_API_URL}/${id}`, {
+  //   method: "DELETE",
+  // })
 };
 
 // render a single party by id
@@ -50,8 +53,8 @@ const renderSinglePartyById = async (id) => {
     const rsvps = await rsvpsResponse.json();
 
     // GET - get all gifts by party id - /api/workshop/parties/gifts/:partyId -BUGGY?
-    // const giftsResponse = await fetch(`${PARTIES_API_URL}/party/gifts/${id}`);
-    // const gifts = await giftsResponse.json();
+    const giftsResponse = await fetch(`${PARTIES_API_URL}/party/gifts/${id}`);
+    const gifts = await giftsResponse.json();
 
     // create new HTML element to display party details
     const partyDetailsElement = document.createElement('div');
@@ -64,8 +67,7 @@ const renderSinglePartyById = async (id) => {
             <p>${party.country}</p>
             <h3>Guests:</h3>
             <ul>
-            ${guests
-              .map(
+            ${guests.map(
                 (guest, index) => `
               <li>
                 <div>${guest.name}</div>
@@ -130,6 +132,8 @@ const renderParties = async (parties) => {
 // init function
 const init = async () => {
   // your code here
+  const parties = await getAllParties();
+  renderParties(parties);
 };
 
 init();
