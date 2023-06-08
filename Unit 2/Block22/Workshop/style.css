@@ -1,5 +1,53 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(228, 234, 234, 0.977);
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem;
+  padding: 2rem;
+  background-color: rgb(170, 178, 178);
+}
+
+#party-container {
+  margin: 1rem;
+  padding: 2rem;
+  background-color: rgba(228, 234, 234, 0.977);
+}
+
+.party,
+.party-details {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgba(153, 159, 159, 0.188);
+  border-radius: 1rem;
+}
+
+h2 {
+  margin: 1rem;
+  text-align: center;
+}
+
+p {
+  margin: 1rem;
+}
+
+button {
+  text-align: center;
+  margin: 2rem;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: rgba(200, 198, 195, 0.469);
+}
+
+button:hover {
+  background-color: white;
+  color: black;
 }
