@@ -14,8 +14,6 @@ const fetchAllPlayers = async () => {
     try {
         const response = await fetch(`${APIURL}players`);
         const result = await response.json();
-        console.log("fetchAllPlayers, Result: ", result);
-        console.log("fetchAllPlayers, result.data: ", result.data);
         return result;
 
     } catch (err) {
@@ -43,8 +41,6 @@ const addNewPlayer = async (playerObj) => {
             headers: { "Content-Type": "application/json", },
         });
         const result = await response.json();
-        console.log("response: ", response);
-        console.log("result: ", result);
 
     } catch (err) {
         console.error('Oops, something went wrong with adding that player!', err);
@@ -57,8 +53,6 @@ const removePlayer = async (playerId) => {
             method: "DELETE",
         });
         const result = await response.json();
-        console.log("Remove Player Result: ", result);
-        console.log("Remove player reslut.id: ", result.id);
 
     } catch (err) {
         console.error(
@@ -90,8 +84,6 @@ const removePlayer = async (playerId) => {
  */
 const renderAllPlayers = (playerList) => {
     try {
-        console.log("Player: ", playerList);
-        console.log("player.data: ", playerList.data);
 
         playerContainer.innerHTML = "";
         playerList.data.players.forEach(player => {
@@ -110,15 +102,78 @@ const renderAllPlayers = (playerList) => {
                
             `;
             playerContainer.appendChild(singlePlayerContainer);
-            console.log(player);
+
+            const removeButton = singlePlayerContainer.querySelector(`.remove-button`);
+            removeButton.addEventListener(`click`, () => {
+                removePlayer(player.id);
+                location.reload();
+            });
+
+            const detailsButton = singlePlayerContainer.querySelector(`.details-button`);
+            detailsButton.addEventListener(`click`, () => {
+                renderSinglePlayer(player.id);
+
+            });
 
         });
+
+        
 
 
     } catch (err) {
         console.error('Uh oh, trouble rendering players!', err);
     }
 };
+
+const renderSinglePlayer = async (playerId) => {
+    try {
+        const response = await fetchSinglePlayer(playerId);
+        const player = response.data.player;
+        playerContainer.innerHTML = "";
+            const singlePlayerContainer = document.createElement("div");
+            singlePlayerContainer.classList.add("player");
+            singlePlayerContainer.innerHTML = `
+                <img class="player-img" src="${player.imageUrl}" alt="Puppy Image">
+                <div class="button-footer">
+                <button class="back-button" type="button" data-id="player.id">Back</button>
+                <button class="remove-button" type="button" data-id="player.id">Remove</button>
+                </div>
+
+                <div class="details">
+                <div>
+                <p>ID: ${player.id}</p>
+                <p>Name: ${player.name.toUpperCase()}</p>
+                <p>Breed: ${player.breed}</p>
+                <p>Status: ${player.status}</p>
+                <p>Cohort ID: ${player.cohortId}</p>
+                <p>Team ID: ${player.teamId}</p>
+                </div>
+                </div>
+               
+            `;
+            playerContainer.appendChild(singlePlayerContainer);
+
+            // const details = document.createElement("div");
+            // details.classList.add("details");
+            // details.innerHTML = `
+            //     <p>ID: ${player.id}</p>
+            //     <p>Name: ${player.name.toUpperCase()}</p>
+            //     <p>Breed: ${player.breed}</p>
+            //     <p>Status: ${player.status}</p>
+            //     <p>Cohort ID: ${player.cohortId}</p>
+            //     <p>Team ID: ${player.teamId}</p>
+            // `;
+            // playerContainer.appendChild(details);
+            const backButton = singlePlayerContainer.querySelector(`.back-button`)
+            backButton.addEventListener(`click`, () => {
+                window.location.reload();
+            });
+
+            
+    } catch (error) {
+        
+    }
+}
 
 
 /**
