@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -7,7 +7,8 @@
 #all-players-container {
   display: flex;
   flex-wrap: wrap;
- 
+  justify-content: center;
+  background-color: darkorange;
 }
 .player {
   width: 21rem;
@@ -17,8 +18,7 @@
   display: grid;
   place-items: center;
   border-radius: 1rem;
-
-
+  background-color: orange;
 }
 
 .card-header {
@@ -26,32 +26,28 @@
   justify-content: space-between;
   width: 100%;
   border-radius: 2rem;
-
-
 }
 
-.player-name, .player-id {
+.player-name,
+.player-id {
   border: solid black 2pt;
-  margin: .3rem;
-  padding: .5rem;
-  width: 8rem;
+  margin: 0.3rem;
+  padding: 0.5rem;
+  width: 9rem;
   text-align: center;
   border-radius: 2rem;
   font-weight: bold;
-  font-size: larger;
-
+  font-size: large;
 }
 
+.player-id {
+  font-style: italic;
+}
 
 .player-img {
   width: 20rem;
   height: auto;
-  align-items: center;
-  text-align: center;
-  align-content: center;
-  /* margin: 2rem; */
   border-radius: 1rem;
-
 }
 
 .button-footer {
@@ -59,19 +55,16 @@
   justify-content: space-between;
   width: 100%;
   border-radius: 2rem;
-
 }
 
 button {
   border: solid black 2pt;
-  margin: .3rem;
-  padding: .4rem;
+  margin: 0.3rem;
+  padding: 0.4rem;
   width: 8rem;
   font-weight: bold;
   border-radius: 1rem;
-  background-color:rgb(255, 206, 108);
-
-
+  background-color: rgb(255, 206, 108);
 }
 button:hover {
   background-color: black;

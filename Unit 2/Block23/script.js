@@ -12,7 +12,7 @@ const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
  */
 const fetchAllPlayers = async () => {
     try {
-        const response = await fetch (`${APIURL}players`);
+        const response = await fetch(`${APIURL}players`);
         const result = await response.json();
         console.log("fetchAllPlayers, Result: ", result);
         console.log("fetchAllPlayers, result.data: ", result.data);
@@ -25,7 +25,7 @@ const fetchAllPlayers = async () => {
 
 const fetchSinglePlayer = async (playerId) => {
     try {
-        const response = await fetch (`${APIURL}players/${playerId}`);
+        const response = await fetch(`${APIURL}players/${playerId}`);
         const result = await response.json();
 
         return result;
@@ -37,14 +37,14 @@ const fetchSinglePlayer = async (playerId) => {
 
 const addNewPlayer = async (playerObj) => {
     try {
-        const response = await fetch (`${APIURL}players/`, {
+        const response = await fetch(`${APIURL}players/`, {
             method: "POST",
             body: JSON.stringify(playerObj),
-            headers: { "Content-Type": "application/json",},
-        })
+            headers: { "Content-Type": "application/json", },
+        });
         const result = await response.json();
         console.log("response: ", response);
-        console.log("result: ", result );
+        console.log("result: ", result);
 
     } catch (err) {
         console.error('Oops, something went wrong with adding that player!', err);
@@ -53,12 +53,12 @@ const addNewPlayer = async (playerObj) => {
 
 const removePlayer = async (playerId) => {
     try {
-        const response = await fetch (`${APIURL}players/${playerId}`, {
+        const response = await fetch(`${APIURL}players/${playerId}`, {
             method: "DELETE",
-        })
+        });
         const result = await response.json();
         console.log("Remove Player Result: ", result);
-        console.log ("Remove player reslut.id: ", result.id);
+        console.log("Remove player reslut.id: ", result.id);
 
     } catch (err) {
         console.error(
@@ -100,7 +100,7 @@ const renderAllPlayers = (playerList) => {
             singlePlayerContainer.innerHTML = `
                 <div class="card-header">
                 <div class="player-name">${player.name.toUpperCase()}</div>
-                <div class="player-id">${player.id}</div>
+                <div class="player-id">#${player.id}</div>
                 </div>
                 <img class="player-img" src="${player.imageUrl}" alt="Puppy Image">
                 <div class="button-footer">
@@ -114,7 +114,7 @@ const renderAllPlayers = (playerList) => {
 
         });
 
-       
+
     } catch (err) {
         console.error('Uh oh, trouble rendering players!', err);
     }
@@ -127,11 +127,11 @@ const renderAllPlayers = (playerList) => {
  */
 const renderNewPlayerForm = () => {
     try {
-        
+
     } catch (err) {
         console.error('Uh oh, trouble rendering the new player form!', err);
     }
-}
+};
 
 const init = async () => {
     const players = await fetchAllPlayers();
@@ -147,13 +147,13 @@ const init = async () => {
         status: "field",
         imageUrl: "http://r.ddmcdn.com/w_912/s_f/o_1/cx_51/cy_0/cw_912/ch_1368/APL/uploads/2019/12/Anise-PBXVI.jpg",
         teamId: 729,
-    }
+    };
 
     // await addNewPlayer(player);
 
     // await removePlayer();
 
 
-}
+};
 
 init();
