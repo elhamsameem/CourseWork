@@ -117,7 +117,7 @@ const renderAllPlayers = (playerList) => {
 
         });
 
-        
+
 
 
     } catch (err) {
@@ -125,14 +125,22 @@ const renderAllPlayers = (playerList) => {
     }
 };
 
+
+/* 
+Use a try/catch block
+This function should only render an object of player based on an ID
+Function takes a param "playerId" and it uses "fetchSinglePlayer" function to render the info.
+This function should have a back button which takes the user back to render all players
+*/
+
 const renderSinglePlayer = async (playerId) => {
     try {
         const response = await fetchSinglePlayer(playerId);
         const player = response.data.player;
         playerContainer.innerHTML = "";
-            const singlePlayerContainer = document.createElement("div");
-            singlePlayerContainer.classList.add("player");
-            singlePlayerContainer.innerHTML = `
+        const singlePlayerContainer = document.createElement("div");
+        singlePlayerContainer.classList.add("player");
+        singlePlayerContainer.innerHTML = `
                 <img class="player-img" src="${player.imageUrl}" alt="Puppy Image">
                 <div class="button-footer">
                 <button class="back-button" type="button" data-id="player.id">Back</button>
@@ -151,29 +159,29 @@ const renderSinglePlayer = async (playerId) => {
                 </div>
                
             `;
-            playerContainer.appendChild(singlePlayerContainer);
+        playerContainer.appendChild(singlePlayerContainer);
 
-            // const details = document.createElement("div");
-            // details.classList.add("details");
-            // details.innerHTML = `
-            //     <p>ID: ${player.id}</p>
-            //     <p>Name: ${player.name.toUpperCase()}</p>
-            //     <p>Breed: ${player.breed}</p>
-            //     <p>Status: ${player.status}</p>
-            //     <p>Cohort ID: ${player.cohortId}</p>
-            //     <p>Team ID: ${player.teamId}</p>
-            // `;
-            // playerContainer.appendChild(details);
-            const backButton = singlePlayerContainer.querySelector(`.back-button`)
-            backButton.addEventListener(`click`, () => {
-                window.location.reload();
-            });
+        // const details = document.createElement("div");
+        // details.classList.add("details");
+        // details.innerHTML = `
+        //     <p>ID: ${player.id}</p>
+        //     <p>Name: ${player.name.toUpperCase()}</p>
+        //     <p>Breed: ${player.breed}</p>
+        //     <p>Status: ${player.status}</p>
+        //     <p>Cohort ID: ${player.cohortId}</p>
+        //     <p>Team ID: ${player.teamId}</p>
+        // `;
+        // playerContainer.appendChild(details);
+        const backButton = singlePlayerContainer.querySelector(`.back-button`);
+        backButton.addEventListener(`click`, () => {
+            window.location.reload();
+        });
 
-            
+
     } catch (error) {
-        
+
     }
-}
+};
 
 
 /**
