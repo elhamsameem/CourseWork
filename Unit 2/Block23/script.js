@@ -41,6 +41,7 @@ const addNewPlayer = async (playerObj) => {
             headers: { "Content-Type": "application/json", },
         });
         const result = await response.json();
+        return result;
 
     } catch (err) {
         console.error('Oops, something went wrong with adding that player!', err);
@@ -53,6 +54,7 @@ const removePlayer = async (playerId) => {
             method: "DELETE",
         });
         const result = await response.json();
+        window.location.reload();
 
     } catch (err) {
         console.error(
@@ -106,7 +108,6 @@ const renderAllPlayers = (playerList) => {
             const removeButton = singlePlayerContainer.querySelector(`.remove-button`);
             removeButton.addEventListener(`click`, () => {
                 removePlayer(player.id);
-                location.reload();
             });
 
             const detailsButton = singlePlayerContainer.querySelector(`.details-button`);
@@ -117,7 +118,7 @@ const renderAllPlayers = (playerList) => {
 
         });
 
-
+        
 
 
     } catch (err) {
@@ -125,22 +126,14 @@ const renderAllPlayers = (playerList) => {
     }
 };
 
-
-/* 
-Use a try/catch block
-This function should only render an object of player based on an ID
-Function takes a param "playerId" and it uses "fetchSinglePlayer" function to render the info.
-This function should have a back button which takes the user back to render all players
-*/
-
 const renderSinglePlayer = async (playerId) => {
     try {
         const response = await fetchSinglePlayer(playerId);
         const player = response.data.player;
         playerContainer.innerHTML = "";
-        const singlePlayerContainer = document.createElement("div");
-        singlePlayerContainer.classList.add("player");
-        singlePlayerContainer.innerHTML = `
+            const singlePlayerContainer = document.createElement("div");
+            singlePlayerContainer.classList.add("player");
+            singlePlayerContainer.innerHTML = `
                 <img class="player-img" src="${player.imageUrl}" alt="Puppy Image">
                 <div class="button-footer">
                 <button class="back-button" type="button" data-id="player.id">Back</button>
@@ -159,37 +152,110 @@ const renderSinglePlayer = async (playerId) => {
                 </div>
                
             `;
-        playerContainer.appendChild(singlePlayerContainer);
+            playerContainer.appendChild(singlePlayerContainer);
 
-        // const details = document.createElement("div");
-        // details.classList.add("details");
-        // details.innerHTML = `
-        //     <p>ID: ${player.id}</p>
-        //     <p>Name: ${player.name.toUpperCase()}</p>
-        //     <p>Breed: ${player.breed}</p>
-        //     <p>Status: ${player.status}</p>
-        //     <p>Cohort ID: ${player.cohortId}</p>
-        //     <p>Team ID: ${player.teamId}</p>
-        // `;
-        // playerContainer.appendChild(details);
-        const backButton = singlePlayerContainer.querySelector(`.back-button`);
-        backButton.addEventListener(`click`, () => {
-            window.location.reload();
-        });
+            // Adding event listener to cancle button
+            const backButton = singlePlayerContainer.querySelector(`.back-button`)
+            backButton.addEventListener(`click`, () => {
+                window.location.reload();
+            });
 
-
+            
     } catch (error) {
-
+        
     }
-};
+}
 
 
 /**
  * It renders a form to the DOM, and when the form is submitted, it adds a new player to the database,
  * fetches all players from the database, and renders them to the DOM.
  */
-const renderNewPlayerForm = () => {
+const renderNewPlayerForm = async() => {
     try {
+        
+        function addButton () {
+            newPlayerFormContainer.innerHTML = "";
+            newPlayerFormContainer.innerHTML = `
+            <button id="new-player-button">Add New Player</button>
+            `;
+        }
+        
+        addButton();
+        
+        const newPlayerButton = newPlayerFormContainer.querySelector("#new-player-button");
+        newPlayerButton.style.padding = "1rem";
+        newPlayerButton.addEventListener(`click`, () => {
+            newPlayerFormContainer.innerHTML = "";
+            const form = document.createElement("form");
+            form.style.border = "solid black 2pt";
+            form.style.padding = "3rem";
+            form.innerHTML = `
+            <h2>Enter New Player Details:</h2>
+            <br/>
+            <label for="name-box">Name: </label>
+            <input type="text" name="name-box" id="name-box" placeholder="Jack" required>
+            <br/>
+            <label for="breed-box">Breed: </label>
+            <input type="text" name="breed-box" id="breed-box" required>
+            <br/>
+            <label for="status-box">Status: </label>
+            <input type="text" name="status-box" id="status-box" placeholder="Only bench or field" required>
+            <br/>
+            <label for="img-url">Image: </label>
+            <input type="text" name="img-url" id="img-url" placeholder="Image URL" required>
+            <br/>
+            <br/><br/>
+            <button id="submit-button">Submit</button>
+            <button id="cancel-button">Cancel</button>
+            `;
+
+            const cancelButton = form.querySelector("#cancel-button");
+            cancelButton.addEventListener("click", () => {
+                renderNewPlayerForm();
+            });
+
+            
+        const submitButton = form.querySelector("#submit-button");
+        submitButton.addEventListener("click", () => {
+            const nameInput = form.querySelector("#name-box");
+            const breedInput = form.querySelector("#breed-box");
+            const statusInput = form.querySelector("#status-box");
+            const imgUrlInput = form.querySelector("#img-url");
+
+            // Create an object using the input values
+            const newPlayer = {
+            name: nameInput.value,
+            breed: breedInput.value,
+            status: statusInput.value,
+            imageUrl: imgUrlInput.value,
+            };
+
+            // Add the newPlayer object
+            addNewPlayer(newPlayer);
+
+            if (newPlayer.name){
+                form.innerHTML = "";
+                form.innerHTML = `
+                <h2>New Player Added Successfuly</h2>
+                <br/>
+                <br/>
+                <br/>
+                <button id="ok-button">OK</button>
+                `;
+
+                const okButton = document.querySelector("#ok-button");
+                okButton.addEventListener("click", () => {
+                    location.reload()
+                });
+            };
+
+        });
+            
+            newPlayerFormContainer.appendChild(form);
+        });
+       
+
 
     } catch (err) {
         console.error('Uh oh, trouble rendering the new player form!', err);
@@ -200,22 +266,7 @@ const init = async () => {
     const players = await fetchAllPlayers();
     renderAllPlayers(players);
 
-    // renderNewPlayerForm();
-
-    fetchSinglePlayer(6203);
-
-    const player = {
-        name: "Elto",
-        breed: "Special Dog",
-        status: "field",
-        imageUrl: "http://r.ddmcdn.com/w_912/s_f/o_1/cx_51/cy_0/cw_912/ch_1368/APL/uploads/2019/12/Anise-PBXVI.jpg",
-        teamId: 729,
-    };
-
-    // await addNewPlayer(player);
-
-    // await removePlayer();
-
+    renderNewPlayerForm();
 
 };
 
