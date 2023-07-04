@@ -118,7 +118,7 @@ const renderAllPlayers = (playerList) => {
 
         });
 
-        
+
 
 
     } catch (err) {
@@ -131,9 +131,9 @@ const renderSinglePlayer = async (playerId) => {
         const response = await fetchSinglePlayer(playerId);
         const player = response.data.player;
         playerContainer.innerHTML = "";
-            const singlePlayerContainer = document.createElement("div");
-            singlePlayerContainer.classList.add("player");
-            singlePlayerContainer.innerHTML = `
+        const singlePlayerContainer = document.createElement("div");
+        singlePlayerContainer.classList.add("player");
+        singlePlayerContainer.innerHTML = `
                 <img class="player-img" src="${player.imageUrl}" alt="Puppy Image">
                 <div class="button-footer">
                 <button class="back-button" type="button" data-id="player.id">Back</button>
@@ -152,37 +152,43 @@ const renderSinglePlayer = async (playerId) => {
                 </div>
                
             `;
-            playerContainer.appendChild(singlePlayerContainer);
+        playerContainer.appendChild(singlePlayerContainer);
 
-            // Adding event listener to cancle button
-            const backButton = singlePlayerContainer.querySelector(`.back-button`)
-            backButton.addEventListener(`click`, () => {
-                window.location.reload();
-            });
+        // Adding event listener to back button
+        const backButton = singlePlayerContainer.querySelector(`.back-button`);
+        backButton.addEventListener(`click`, () => {
+            window.location.reload();
+        });
 
-            
+        // Adding event listener to remove button
+        const removeButton = singlePlayerContainer.querySelector(`.remove-button`);
+        removeButton.addEventListener(`click`, () => {
+            removePlayer(player.id);
+        });
+
+
     } catch (error) {
-        
+
     }
-}
+};
 
 
 /**
  * It renders a form to the DOM, and when the form is submitted, it adds a new player to the database,
  * fetches all players from the database, and renders them to the DOM.
  */
-const renderNewPlayerForm = async() => {
+const renderNewPlayerForm = async () => {
     try {
-        
-        function addButton () {
+
+        function addButton() {
             newPlayerFormContainer.innerHTML = "";
             newPlayerFormContainer.innerHTML = `
             <button id="new-player-button">Add New Player</button>
             `;
         }
-        
+
         addButton();
-        
+
         const newPlayerButton = newPlayerFormContainer.querySelector("#new-player-button");
         newPlayerButton.style.padding = "1rem";
         newPlayerButton.addEventListener(`click`, () => {
@@ -200,7 +206,10 @@ const renderNewPlayerForm = async() => {
             <input type="text" name="breed-box" id="breed-box" required>
             <br/>
             <label for="status-box">Status: </label>
-            <input type="text" name="status-box" id="status-box" placeholder="Only bench or field" required>
+            <select required>
+            <option value="bench">Bench</option>
+            <option value="field">Field</option>
+            </select>
             <br/>
             <label for="img-url">Image: </label>
             <input type="text" name="img-url" id="img-url" placeholder="Image URL" required>
@@ -215,28 +224,32 @@ const renderNewPlayerForm = async() => {
                 renderNewPlayerForm();
             });
 
-            
-        const submitButton = form.querySelector("#submit-button");
-        submitButton.addEventListener("click", () => {
-            const nameInput = form.querySelector("#name-box");
-            const breedInput = form.querySelector("#breed-box");
-            const statusInput = form.querySelector("#status-box");
-            const imgUrlInput = form.querySelector("#img-url");
 
-            // Create an object using the input values
-            const newPlayer = {
-            name: nameInput.value,
-            breed: breedInput.value,
-            status: statusInput.value,
-            imageUrl: imgUrlInput.value,
-            };
+            const submitButton = form.querySelector("#submit-button");
+            submitButton.addEventListener("click", () => {
+                const nameInput = form.querySelector("#name-box");
+                const breedInput = form.querySelector("#breed-box");
+                // Getting the status input data from selected option:
+                const x = form.querySelector("select");
+                const i = x.selectedIndex;
+                const statusInput = x.options[i];
+                const imgUrlInput = form.querySelector("#img-url");
 
-            // Add the newPlayer object
-            addNewPlayer(newPlayer);
+                // Create an object using the input values
+                const newPlayer = {
+                    name: nameInput.value,
+                    breed: breedInput.value,
+                    status: statusInput.value,
+                    imageUrl: imgUrlInput.value,
+                };
+                console.log(newPlayer.status);
 
-            if (newPlayer.name){
-                form.innerHTML = "";
-                form.innerHTML = `
+                // Add the newPlayer object
+                addNewPlayer(newPlayer);
+
+                if (newPlayer.name) {
+                    form.innerHTML = "";
+                    form.innerHTML = `
                 <h2>New Player Added Successfuly</h2>
                 <br/>
                 <br/>
@@ -244,17 +257,18 @@ const renderNewPlayerForm = async() => {
                 <button id="ok-button">OK</button>
                 `;
 
-                const okButton = document.querySelector("#ok-button");
-                okButton.addEventListener("click", () => {
-                    location.reload()
-                });
-            };
+                    const okButton = document.querySelector("#ok-button");
+                    okButton.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        location.reload();
+                    });
+                };
 
-        });
-            
+            });
+
             newPlayerFormContainer.appendChild(form);
         });
-       
+
 
 
     } catch (err) {

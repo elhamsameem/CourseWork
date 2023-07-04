@@ -6,7 +6,6 @@
 
 body {
   background-color: darkorange;
-
 }
 
 #all-players-container {
@@ -90,7 +89,6 @@ button:hover {
   width: 100%;
   padding: 1rem;
   /* border: solid red 2pt; */
-
 }
 
 #new-player-form {
@@ -99,7 +97,6 @@ button:hover {
   margin: 3rem;
   flex-direction: column;
   align-items: center;
-
 }
 #new-player-button {
   background-color: rgb(0, 55, 255);
@@ -108,13 +105,17 @@ button:hover {
   height: 6rem;
 }
 
-#new-player-button:hover, #submit-button:hover, #ok-button:hover {
+#new-player-button:hover,
+#submit-button:hover,
+#ok-button:hover {
   background-color: black;
 }
 
-input {
+input,
+select {
   margin: 1rem;
-  padding: .5rem;
+  padding: 0.5rem;
+  width: 10rem;
 }
 
 #submit-button {
