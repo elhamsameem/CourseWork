@@ -96,7 +96,9 @@ const renderAllPlayers = (playerList) => {
                 <div class="player-name">${player.name.toUpperCase()}</div>
                 <div class="player-id">#${player.id}</div>
                 </div>
+                <div class="card-img">
                 <img class="player-img" src="${player.imageUrl}" alt="Puppy Image">
+                </div>
                 <div class="button-footer">
                 <button class="details-button" type="button" data-id="player.id">See Details</button>
                 <button class="remove-button" type="button" data-id="player.id">Remove</button>

@@ -48,6 +48,14 @@ body {
   font-style: italic;
 }
 
+.card-img {
+  height: 30rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .player-img {
   width: 20rem;
   height: auto;
