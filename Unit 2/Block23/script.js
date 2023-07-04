@@ -242,7 +242,6 @@ const renderNewPlayerForm = async () => {
                     status: statusInput.value,
                     imageUrl: imgUrlInput.value,
                 };
-                console.log(newPlayer.status);
 
                 // Add the newPlayer object
                 addNewPlayer(newPlayer);
@@ -258,8 +257,7 @@ const renderNewPlayerForm = async () => {
                 `;
 
                     const okButton = document.querySelector("#ok-button");
-                    okButton.addEventListener("click", (e) => {
-                        e.preventDefault();
+                    okButton.addEventListener("click", () => {
                         location.reload();
                     });
                 };
