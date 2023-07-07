@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  margin: 0;
+  transition: all 0.4s ease-in-out;
+  text-align: center;
+  color: white;
+  padding: 1.5rem;
+  background-color: black;
+}
+
+#container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#navbar {
+  flex-grow: 3;
+  max-height: 10%;
+  min-height: 40px;
+  background-color: #222222c5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  
+}
+
+#navbar div {
+  padding: 10px;
+  text-align: center;
+}
+
+.navColor {
+  transition: all 0.4s ease;
+  width: 15rem;
+  text-align: center;
+
+}
+
+#colors-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.color:hover {
+  cursor: pointer;
+}
+
+#colors-list div {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-top: 80px;
+  transition: all 0.3s ease-in-out;
+}
+
+.selected {
+  border: 5px solid rgb(74, 72, 72);
+  transform: scale(1.5);
+}
+
+/* colors */
+.red {
+  background-color: #cf000f;
+}
+.orange {
+  background-color: #eb6b56;
+}
+.yellow {
+  background-color: #ffc153;
+}
+.green {
+  background-color: #27ae60;
+}
+.blue {
+  background-color: #1d4fda;
+}
+.violet {
+  background-color: #462446;
+}
+.black {
+  background-color: #000000;
+}
+.white {
+  background-color: #ffffff;
+}
