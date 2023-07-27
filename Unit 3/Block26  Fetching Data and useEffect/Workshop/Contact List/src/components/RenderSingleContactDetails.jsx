@@ -5,7 +5,8 @@ function RenderSingleContactDetails({
   selectedContactId,
   setSelectedContactId,
 }) {
-  const [contact, setContact] = useState(0);
+  const [contact, setContact] = useState(null);
+
   // fetching single contact
   useEffect(() => {
     const fetchSingleContact = async (selectedContactId) => {
@@ -22,8 +23,6 @@ function RenderSingleContactDetails({
 
     fetchSingleContact(selectedContactId);
   }, []);
-
-  //   console.log(contact.address.street);
 
   if (selectedContactId) {
     return (

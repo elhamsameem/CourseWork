@@ -11,6 +11,7 @@ const dummyContacts = [
 function ContactList({ setSelectedContactId }) {
   const [contacts, setContacts] = useState(dummyContacts);
 
+  // Fetching all contacts from API
   useEffect(() => {
     const fetchContacts = async () => {
       try {
@@ -26,8 +27,6 @@ function ContactList({ setSelectedContactId }) {
 
     fetchContacts();
   }, []);
-
-  console.log(contacts);
 
   return (
     <>

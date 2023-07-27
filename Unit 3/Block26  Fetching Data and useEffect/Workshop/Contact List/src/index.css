@@ -13,13 +13,15 @@ table,
 
 #single-contact-details {
   text-align: center;
-  width: 50vw;
+  max-width: 30vw;
+  border: solid black 2px;
+  padding: 2rem;
 }
 
 #details {
   text-align: left;
   width: auto;
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
 }
 
 li {
@@ -56,4 +58,9 @@ tr {
 
 th {
   padding-bottom: 10px;
+}
+
+button {
+  width: 5rem;
+  height: 2rem;
 }
