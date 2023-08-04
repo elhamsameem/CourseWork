@@ -8,11 +8,10 @@ import NavBar from "./components/NavBar";
 function App() {
   return (
     <>
-      <h1>App.jsx</h1>
+      <NavBar />
       <AllPlayers />
       <SinglePlayer />
       <NewPlayerForm />
-      <NavBar />
     </>
   );
 }
