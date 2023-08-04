@@ -1,3 +1,4 @@
+
 const BASE_URL = "https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-b";
 
 async function fetchAllPlayers () {
@@ -6,4 +7,11 @@ async function fetchAllPlayers () {
     return result.data.players;
 }
 
-export {fetchAllPlayers};
+async function fetchSinglePlayer (id) {
+    const response = await fetch (`${BASE_URL}/players/${id}`);
+    const result = await response.json();
+    return result.data.player;
+}
+
+
+export {fetchAllPlayers, fetchSinglePlayer};

@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home";
 import AllPlayers from "./components/AllPlayers";
 import SinglePlayer from "./components/SinglePlayer";
 import NewPlayerForm from "./components/NewPlayerFOrm";
@@ -9,9 +11,12 @@ function App() {
   return (
     <>
       <NavBar />
-      <AllPlayers />
-      <SinglePlayer />
-      <NewPlayerForm />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/players" element={<AllPlayers />} />
+        <Route path="/newPlayerForm" element={<NewPlayerForm />} />
+        <Route path="/players/:id" element={<SinglePlayer />} />
+      </Routes>
     </>
   );
 }
