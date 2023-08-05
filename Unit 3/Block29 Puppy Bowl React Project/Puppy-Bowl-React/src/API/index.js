@@ -14,4 +14,6 @@ async function fetchSinglePlayer (id) {
 }
 
 
+
+
 export {fetchAllPlayers, fetchSinglePlayer};
