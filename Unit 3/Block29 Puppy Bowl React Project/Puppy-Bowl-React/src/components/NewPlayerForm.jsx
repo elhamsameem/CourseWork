@@ -1,19 +1,32 @@
 import React from "react";
 import { useState } from "react";
 import "./NewPlayerForm.css";
+import { postNewPlayer } from "../API";
 
 function NewPlayerForm() {
   const [playerCreated, setPlayerCreated] = useState(null);
-  // setPlayerCreated(null);
+  const [name, setName] = useState("");
+  const [breed, setBreed] = useState("");
+  const [status, setStatus] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   function hangleSubmit(e) {
     e.preventDefault();
-    const newPlayer = new FormData(e.target);
-    console.log(newPlayer);
-    newPlayer.forEach((value, key) => {
-      console.log(key, value);
-    });
+    // const newPlayer = new FormData(e.target);
 
+    const newPlayer = {
+      name,
+      breed,
+      status,
+      imageUrl,
+    };
+
+    async function newPlayerCreation() {
+      const data = await postNewPlayer(newPlayer);
+      return data;
+    }
+
+    newPlayerCreation();
     setPlayerCreated(true);
   }
 
@@ -38,15 +51,15 @@ function NewPlayerForm() {
         </label>
         <label htmlFor="status">
           Status:
-          <input type="text" id="status" name="status" />
+          <select name="status" id="status" required>
+            <option>-- Select Status --</option>
+            <option value="bench">Bench</option>
+            <option value="field">Field</option>
+          </select>
         </label>
         <label htmlFor="imageUrl">
           Image URL:
           <input type="text" id="imageUrl" name="imageUrl" />
-        </label>
-        <label htmlFor="teamId">
-          Team ID:
-          <input type="text" id="teamId" name="teamId" />
         </label>
         <button className="footer-buttons" type="submit">
           Submit

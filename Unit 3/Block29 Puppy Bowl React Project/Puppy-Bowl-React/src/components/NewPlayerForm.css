@@ -26,10 +26,16 @@
   justify-content: center;
 }
 
-#new-player-form input {
+#new-player-form input,
+select {
   margin: 0.5rem;
   padding: 0.2rem;
   width: 15rem;
+}
+
+#new-player-form select {
+  text-align: center;
+  width: 15.6rem;
 }
 
 #new-player-form button {
