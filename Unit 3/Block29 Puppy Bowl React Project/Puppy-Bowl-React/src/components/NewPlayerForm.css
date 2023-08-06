@@ -1,28 +1,40 @@
 .new-player-form-div {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    border: 2pt solid rgba(128, 128, 128, 0.624);
-    background-color: rgba(128, 128, 128, 0.531);
-    text-align: center;
-    margin: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  border: 2pt solid rgba(128, 128, 128, 0.624);
+  background-color: rgba(128, 128, 128, 0.531);
+  text-align: center;
+  margin: 5rem;
+  padding: 3rem;
+  padding-bottom: 0;
+  padding-top: 0;
+}
 
-
+.new-player-form-div button {
+  width: auto;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  margin-bottom: 1rem;
 }
 
 #new-player-form {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    text-align: right;
-    justify-content: center;
-
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  text-align: right;
+  justify-content: center;
 }
 
 #new-player-form input {
-    margin: 1rem;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  width: 15rem;
 }
 
 #new-player-form button {
-   width: auto;
+  width: auto;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  margin-bottom: 0;
 }

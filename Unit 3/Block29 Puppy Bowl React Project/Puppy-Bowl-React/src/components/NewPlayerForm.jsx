@@ -18,12 +18,12 @@ function NewPlayerForm() {
   }
 
   return playerCreated ? (
-    <>
+    <div className="new-player-form-div">
       <h1>Player has been created!</h1>
       <button className="footer-buttons" onClick={() => setPlayerCreated(null)}>
         Okay
       </button>
-    </>
+    </div>
   ) : (
     <div className="new-player-form-div">
       <h1>New Player Form</h1>

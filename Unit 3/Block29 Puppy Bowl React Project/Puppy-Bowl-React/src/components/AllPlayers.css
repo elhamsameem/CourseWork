@@ -1,13 +1,14 @@
 .all-players-container-1 {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
 }
 
 .all-players-1 {
-    display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
