@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchAllPlayers } from "../API";
+import { fetchAllPlayers, removePlayer } from "../API";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,12 @@ function Home() {
       setPlayers(allPlayers);
     }
     fetchPlayers();
-  }, []);
+  }, [players]);
+
+  // Remove player funciton
+  async function deletePlayer(playerId) {
+    const response = await removePlayer(playerId);
+  }
 
   return (
     <div className="all-players-container">
@@ -38,7 +43,14 @@ function Home() {
                   >
                     See Details
                   </button>
-                  <button className="remove-button">Remove</button>
+                  <button
+                    className="remove-button"
+                    onClick={() => {
+                      deletePlayer(player.id);
+                    }}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             );

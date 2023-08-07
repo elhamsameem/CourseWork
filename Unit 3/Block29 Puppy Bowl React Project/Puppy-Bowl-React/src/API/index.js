@@ -40,7 +40,20 @@ async function postNewPlayer(newPlayer) {
     }
 }
 
+async function removePlayer(playerId) {
+    try {
+        const response = await fetch(`${BASE_URL}/players/${playerId}`, {
+            method: "DELETE",
+        });
+        const result = await response.json();
+        return result;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
-export { fetchAllPlayers, fetchSinglePlayer, postNewPlayer };
+
+export { fetchAllPlayers, fetchSinglePlayer, postNewPlayer, removePlayer };

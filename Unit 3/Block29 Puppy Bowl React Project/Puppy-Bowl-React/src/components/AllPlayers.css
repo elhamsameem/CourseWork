@@ -6,9 +6,28 @@
   padding-bottom: 3rem;
 }
 
+.all-players-title-bar-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
 .all-players-1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.player-search-bar {
+  width: 15rem;
+  padding: 0.3rem;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  color: black;
+  border: 1pt solid rgba(106, 104, 104, 0.753);
+  background-color: rgba(200, 197, 197, 0.453);
+  border-radius: 5px;
 }

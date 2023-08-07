@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSinglePlayer } from "../API";
+import { fetchSinglePlayer, removePlayer } from "../API";
 import "./SinglePlayer.css";
 
 function SinglePlayer() {
@@ -14,6 +14,13 @@ function SinglePlayer() {
     }
     fetchPlayer();
   }, []);
+
+  // Remove player funciton
+  async function deletePlayer(playerId) {
+    const response = await removePlayer(playerId);
+    setPlayer(null);
+  }
+
   return player ? (
     <>
       <div className="single-player-div">
@@ -38,7 +45,12 @@ function SinglePlayer() {
           >
             Go Back
           </button>
-          <button className="remove-button">Remove</button>
+          <button
+            className="remove-button"
+            onClick={() => deletePlayer(player.id)}
+          >
+            Remove
+          </button>
         </div>
       </div>
     </>
