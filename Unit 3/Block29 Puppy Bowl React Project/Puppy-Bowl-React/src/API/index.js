@@ -22,11 +22,6 @@ async function fetchSinglePlayer(id) {
 }
 
 async function postNewPlayer(newPlayer) {
-    newPlayer.forEach((value, key) => {
-        console.log(key, value);
-    });
-
-    console.log(JSON.stringify(newPlayer), newPlayer);
 
     try {
         const response = await fetch(`${BASE_URL}/players/`, {
@@ -38,7 +33,6 @@ async function postNewPlayer(newPlayer) {
 
         });
         const result = await response.json();
-        console.log("result", result);
         return result;
 
     } catch (error) {
