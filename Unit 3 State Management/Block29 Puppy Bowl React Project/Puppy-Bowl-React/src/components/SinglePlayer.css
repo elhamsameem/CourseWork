@@ -1,0 +1,35 @@
+@media (max-width: 768px) {
+  .single-player-div {
+    width: 20rem !important;
+  }
+}
+
+.single-player-div {
+  display: flex;
+  flex-direction: column;
+  border: 2pt solid rgba(128, 128, 128, 0.624);
+  width: 23vw;
+  border-radius: 5px;
+  margin: 3rem;
+  margin-left: 8rem;
+  background-color: rgba(128, 128, 128, 0.531);
+  padding: 0;
+}
+
+.single-player-h1 {
+  margin: 0;
+  padding: 1rem;
+}
+
+.player-details-div {
+  background-color: rgba(128, 128, 128, 0.258);
+  font-size: large;
+}
+
+.player-image-div {
+  width: inherit;
+}
+
+.player-image-div img {
+  width: inherit;
+}

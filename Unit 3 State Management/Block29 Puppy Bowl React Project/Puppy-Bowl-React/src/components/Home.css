@@ -1,0 +1,82 @@
+.all-players-container {
+  padding: 1rem;
+}
+
+.all-players {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.all-players-title-bar,
+.all-players-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-buttons {
+  background-color: rgba(79, 76, 76, 0.589);
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.player-card {
+  width: 250px;
+  border: 2pt solid rgba(128, 128, 128, 0.624);
+  height: auto;
+  margin: 2rem;
+  border-radius: 5px;
+  background-color: rgba(128, 128, 128, 0.531);
+}
+
+.player-name {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.player-img-container {
+  width: inherit;
+  border-radius: 5px;
+  height: 375px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.303);
+}
+
+.player-img-container img {
+  width: inherit;
+}
+
+.buttons-div {
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttons-div button {
+  width: 100px;
+  height: 30px;
+  background-color: rgba(79, 76, 76, 0.589);
+  color: white;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+.remove-button {
+  color: rgb(238, 106, 106) !important;
+  font-weight: bold;
+}
