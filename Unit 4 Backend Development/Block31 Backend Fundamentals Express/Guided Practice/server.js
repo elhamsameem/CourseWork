@@ -47,6 +47,6 @@ app.listen(PORT, () => { console.log("Server is listening on port: " + PORT); })
 // add a script in the package.json if you dont want to type node server.js to start a server. 
 // add the followng to package.json in the script object: "start": "node server.js"
 // Now if you run "npm start", it will run node server.js
-// If you want to automatically start your server when you change things the use the developmental nodemon to do it. 
+// If you want to automatically start your server when you change things the use the developmental dependency  nodemon to do it. 
 // npm install -D nodemon
 // Then do "nodemon server.js" in terminal
